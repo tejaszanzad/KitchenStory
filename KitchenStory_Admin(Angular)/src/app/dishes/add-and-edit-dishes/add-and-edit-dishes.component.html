@@ -1,0 +1,13 @@
+<label>Add Dishes</label> :
+<div>
+        DishName : <input type="text" [(ngModel)]="dish.dishName">
+        Price : <input type="number" [(ngModel)]="dish.price">
+        Menu : 
+        <select [(ngModel)]="dish.menuId">
+            <option value="default">Select Menu</option>
+    <option *ngFor="let menu of menus" [value]="menu.menuId">
+        {{menu.menuName}}
+    </option>
+        </select>
+       : <button (click)="addDish()">Add</button>
+</div>

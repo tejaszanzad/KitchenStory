@@ -1,0 +1,59 @@
+.title{
+    text-align: center;
+    margin-top: 30px;
+}
+.header{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    text-align: right;
+}
+.header .cartCotainer{
+    padding-right:20px ;
+}
+.dishes .content{
+    display: flex;
+    width: 100%;
+}
+.dishes .dishsearch{
+    width: 100%;
+    padding: 10px;
+    display: block;
+    
+}
+
+.dishsearch > .search{
+    position: relative;
+    width: 100%;
+    padding-left: 10px;
+}
+.dishsearch> .search > input{
+    width: 100%;
+    height: 40px;
+}
+
+
+.dishsearch > .search > .glyphicon-search{
+    position: absolute!important;
+    right: 7px;
+    top: 11px;
+}
+
+.dishsearch >input{
+    width: 100%;
+    padding: 10px;
+}
+
+.dishescart .advancefilter{
+    padding: 10px;
+    border: 1px solid #CCC;
+}
+
+.advancefilter{
+    width: 200px;
+}
+
+.carts{
+    display: inline-block;
+}

@@ -1,0 +1,17 @@
+<div>
+    <div (click)="showCart()" class="cartIconContainer">
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+        <span class="totalDish">
+            {{dishes?.length}}
+        </span>
+            
+    </div>
+    <div class="cartDropDown" *ngIf="isShowCart">
+        <ul *ngIf="dishes && dishes.length > 0">
+            <li *ngFor="let dish of dishes">{{dish.dishName}}, Quantity: {{dish.qnt}}, Price :{{dish.price}}</li>
+        </ul>
+        <span><a routerLink="checkout"> <input type="submit" value="Checkout"> </a></span>
+        <span> <input type="submit" value="Clear" (click)="clearCart()"></span>
+    </div>
+</div>
+

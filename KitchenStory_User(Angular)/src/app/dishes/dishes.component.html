@@ -1,0 +1,25 @@
+<div class="title"><h2>Welcome To Kitchen Story</h2></div>
+<div>
+    <div class="header">
+        <div class="cartCotainer">
+            <app-cart></app-cart>
+        </div>
+    </div>
+</div>
+<div class="dishes">
+    <div class="dishsearch" >
+        <div class="search"><input type="text" (keypress)=" searchDishByName($event,mytext.value)" #mytext placeholder="Search Dishes"><div class="glyphicon glyphicon-search" ></div></div>
+    </div>
+   <br><br> 
+    
+    <div class="content">
+        <div class="advancefilter">
+            <app-advanced-filter (doFilterEvent)="filterDishes($event)"></app-advanced-filter>
+        </div>
+        <div class="dishescart">
+            <div *ngFor="let dish of tempDishes" class="carts">
+             <app-dishes-cart [dishDetails]="dish" ></app-dishes-cart>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<label>Add Dishes</label>:<button (click)="showAddAndEditForm()">Add</button>
+<h3> Dishes </h3><br>
+
+<table class="table table-hover">
+    <thead>
+        <th>DishId</th>
+        <th>DishName</th>
+        <th>Price</th>
+        <th>MenuName</th>
+        <th>Action</th>
+    </thead>
+    <tbody >
+        <tr *ngFor="let dish of dishes">
+            <td>{{dish.dishId}}</td>
+            <td>
+                <span *ngIf="selectedDishId !== dish.dishId">{{dish.dishName}}</span>
+                <input [ngStyle]="{'display': selectedDishId === dish.dishId ?'block':'none'}" type="text" #dnameRef value={{dish.dishName}} >
+            </td>
+            <td>
+                <span *ngIf="selectedDishId !== dish.dishId">{{dish.price}}</span>
+                <input [ngStyle]="{'display': selectedDishId === dish.dishId ?'block':'none'}" type="number" #dpriceRef value={{dish.price}} >
+            </td>
+            <td>
+                <span *ngIf="selectedDishId !== dish.dishId">{{dish.menu.menuName}}</span>
+                <select [ngStyle]="{'display': selectedDishId === dish.dishId ?'block':'none'}" type="text" #mnameRef [value]="dish.menu.menuId" >
+                
+                <option value="default">Select Menu</option>
+                <option *ngFor="let menu of menus" [value]="menu.menuId" [selected]="menu.menuId === dish.menu.menuId">
+                    {{menu.menuName}}
+                </option>
+                </select>
+            </td>
+            <td>
+                <button *ngIf="selectedDishId !== dish.dishId" (click)="edit(dish.dishId)">Edit</button>
+                <button *ngIf="selectedDishId === dish.dishId" (click)="update({dishId: dish.dishId, dishName: dnameRef.value, price: dpriceRef.value, menuId: mnameRef.value})">Update</button>
+            </td>
+            <td><button (click)="deleteDish(dish.dishId)">Delete</button></td>
+         </tr>
+    </tbody>
+</table>

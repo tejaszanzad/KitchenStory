@@ -1,0 +1,24 @@
+<app-add-and-edit-menu [getMenu]="getMenu"></app-add-and-edit-menu>
+<h3 > Menu  </h3><br>
+
+<table class="table table-hover">
+    <thead>
+        <th>MenuId</th>
+        <th>MenuName</th>
+        <th>Action</th>
+    </thead>
+    <tbody >
+        <tr *ngFor="let menu of menus">
+            <td>{{menu.menuId}}</td>
+            <td>
+                <span *ngIf="selectedMenuId !== menu.menuId">{{menu.menuName}}</span>
+                <input [ngStyle]="{'display': selectedMenuId === menu.menuId ?'block':'none'}" type="text" #mnameRef value={{menu.menuName}} >
+            </td>
+           <td>
+            <button *ngIf="selectedMenuId !== menu.menuId" (click)="edit(menu.menuId)">Edit</button>
+             <button *ngIf="selectedMenuId === menu.menuId " (click)="update(menu.menuId,mnameRef.value)">Update</button>
+         </td>
+           <td><button (click)="deleteMenu(menu.menuId)">Delete</button></td>
+       </tr>
+    </tbody>
+</table>

@@ -1,0 +1,12 @@
+<div class="cart">
+        <div class="cart-container">
+            <div class="imgContainer">
+                <img src="../../../assets/KitchenStory.jpg" width="100px">
+            </div>
+            <div>{{dishDetails.dishName}}</div>
+            <div>{{dishDetails.price}} Rs</div>
+            <div>{{dishDetails.menu?.menuName}}</div>
+            <div >Qty : <input type="number" #qntRef></div> 
+        </div>
+<div class="addtocart"><input type="submit" value="Add To Cart" (click)="addToCart(dishDetails, qntRef.value)"></div>
+</div> 

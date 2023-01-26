@@ -1,0 +1,10 @@
+<div class="filter">
+    <p>Select Menu</p>
+
+<div *ngFor="let menu of menus">
+
+<input type="checkbox" [checked]="menu.checked" (change)="filterDishes(menu.menuId)" >: {{menu.menuName}} <br><br>
+
+</div>
+
+</div>
